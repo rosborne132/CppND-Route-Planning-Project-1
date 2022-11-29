@@ -8,12 +8,12 @@ RoutePlanner::RoutePlanner(RouteModel &model, float start_x, float start_y, floa
     end_x *= 0.01;
     end_y *= 0.01;
 
-    start_node = &m_Model.FindClosestNode(start_x,start_y);
-    end_node = &m_Model.FindClosestNode(end_x,end_y);
+    start_node = &m_Model.FindClosestNode(start_x, start_y);
+    end_node = &m_Model.FindClosestNode(end_x, end_y);
 }
 
 float RoutePlanner::CalculateHValue(RouteModel::Node const *node) {
-    return node->distance(*this->end_node);
+    return node->distance(*end_node);
 }
 
 void RoutePlanner::AddNeighbors(RouteModel::Node *current_node) {
